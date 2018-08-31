@@ -1,0 +1,1 @@
+export const flagUrl = "https://restcountries.eu/rest/v2/all";

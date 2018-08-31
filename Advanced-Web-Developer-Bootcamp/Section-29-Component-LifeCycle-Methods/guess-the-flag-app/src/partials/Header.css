@@ -1,0 +1,19 @@
+header {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/0/07/Natural_Earth_projection_SW.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    position: relative;
+    top: 110px;
+    font-size: 70px;
+    color: whitesmoke;
+    margin: 0;
+    height: 100px;
+}
