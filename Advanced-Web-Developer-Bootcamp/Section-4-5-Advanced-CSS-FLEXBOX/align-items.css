@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+
+.box { /*  flex item */
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    text-align:center;
+    font-family: lato;
+    font-weight: 300;
+    box-sizing: border-box;
+  }
+
+.box-1 {
+    background: #e51400;
+    font-size: 20px;
+ }
+
+.box-2 {
+    background: #fa6800;
+    font-size: 100px;
+}
+
+.box-3 {
+    background: #f0a30a; 
+}
+
+.box-4 {
+    background: #e3c800; 
+    font-size: 80px;
+}
+
+.container { /* flex container */
+    display: flex;
+    flex-direction: column;
+    border: 10px solid black;
+    height: 800px;
+    align-items: flex-end;
+}

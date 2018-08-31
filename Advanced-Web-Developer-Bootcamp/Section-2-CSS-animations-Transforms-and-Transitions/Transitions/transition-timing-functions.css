@@ -1,0 +1,23 @@
+.box {
+    background: #9b59b6;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    border-radius: 20px;
+}
+
+.animated {
+    transition: transform 2s ease-out 1s,
+    background-color 0.5s linear;
+    /* transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+    transition-delay: 1s; */
+}
+
+.box:hover {
+    transform: translateX(300px);
+    background-color: teal;
+}

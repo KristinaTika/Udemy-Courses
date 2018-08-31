@@ -1,0 +1,22 @@
+.box {
+     background: #9b59b6;
+     height: 100px;
+     width: 100px;
+     text-align: center;
+     color: white;
+     font-size: 17px;
+     border-radius: 20px;
+}
+
+.animated {
+    transition-property: background-color, border-radius;
+    transition-duration: 1s, 1s; /*stavljamo onoliko vrednosti koliko imamo u transition-property-ju argumente */
+    transition-delay: 5s, 2s;
+}
+
+.box:hover {
+    background-color: #e74c3c;
+    transform-origin: top left;
+    transform: scale(2);
+    border-radius: 50px;
+}

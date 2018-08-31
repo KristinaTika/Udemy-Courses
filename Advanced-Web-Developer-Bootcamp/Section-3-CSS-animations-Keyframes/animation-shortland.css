@@ -1,0 +1,17 @@
+.box {
+    background: #e74c3c;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    border-radius: 20px;
+    animation: slideRight 2s ease-in infinite 2s reverse; /* 1.name 2.duration 3. function-iteration 4.iteration-count 5.delay 6.fill-mode   */
+}
+
+@keyframes slideRight {
+    100% {
+        transform: translate(500px);
+    }
+}

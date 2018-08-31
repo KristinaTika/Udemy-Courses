@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"></meta>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  ></meta>
+
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  ></meta>
+
+  <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react-dom-factories@1.0.0/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+  <title>Forms</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    class Form extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          data: [],
+          inputText: ""
+        }
+      }
+
+      render(){
+        return (
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          const data = [...this.state.data,
+              this.state.inputText];
+          this.setState({data, inputText: ''});
+          }}>
+            <input
+              type="text"
+              name="inputText"
+              value={this.state.inputText}
+              onChange={(e) => {
+                this.setState({[e.target.name]: e.target.value})
+              }}
+            />
+        </form>
+        )
+      }
+    }
+
+    ReactDOM.render(<Form /> , document.querySelector("#app"));
+  </script>
+</body>
+</html>

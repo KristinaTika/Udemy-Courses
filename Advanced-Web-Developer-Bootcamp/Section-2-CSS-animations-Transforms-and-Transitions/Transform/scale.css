@@ -1,0 +1,13 @@
+P {
+    width: 50px;
+    height: 50px;
+    background-color: #1abc9c;
+    color: #ecf0f1;
+    border: 2px solid #2c3e50;
+}
+
+.transformed { 
+    background-color: #3498db;
+    transform: scale(2); /*prvi argument za sirinu, drugi za visinu. */
+    transform-origin: 0 0 ; /*da ne bio odsecen levi deo, centriramo ga na 0 0, gornji levi ugao, moze da se napise i left, bottom...*/
+}

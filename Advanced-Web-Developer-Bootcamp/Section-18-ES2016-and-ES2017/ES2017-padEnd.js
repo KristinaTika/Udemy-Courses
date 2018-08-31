@@ -1,0 +1,1 @@
+"awesome".padEnd(10,'!'); // "awesome!!!"

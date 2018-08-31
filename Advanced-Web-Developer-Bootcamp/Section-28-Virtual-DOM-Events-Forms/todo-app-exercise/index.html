@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    ></meta>
+
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="ie=edge"
+    ></meta>
+
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom-factories@1.0.0/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+    <title>Forms</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+    class ToDoApp extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          todos: [],
+          inputValue: "",
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+
+      handleSubmit(e) {
+          e.preventDefault();
+          const todos = [...this.state.todos, this.state.inputValue];
+          this.setState({
+              todos, inputValue: ""
+          });
+      }
+
+      handleChange = (e) => {
+          this.setState({
+              [e.target.name]: e.target.value
+          });
+      }
+
+      render() {
+
+        const {inputValue} = this.state;
+        const todos = this.state.todos.map((t, i) => {
+            return <li key={i}>{t}</li>
+        });
+        return (
+            <div>
+                <h1>Simple to do App</h1>
+                <form onSubmit = {this.handleSubmit}>
+                    <input type="text" 
+                        name="inputValue" 
+                        placeholder="What needs to be done?" 
+                        onChange={this.handleChange}
+                        value={inputValue} />
+                    <button type="submit">SAVE</button>
+                </form>
+                <ol>
+                    {todos}
+                </ol>
+            </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<ToDoApp /> , document.querySelector("#app"));
+    </script>
+</body>
+</html>
