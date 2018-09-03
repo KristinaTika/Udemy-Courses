@@ -17,20 +17,20 @@ class App extends Component {
     let cards = [
       { id: 0, cardState: CardState.hiding, backgroundColor: "red" },
       { id: 1, cardState: CardState.hiding, backgroundColor: "red" },
-      { id: 2, cardState: CardState.hiding, backgroundColor: "navy"},
-      { id: 3, cardState: CardState.hiding, backgroundColor: "navy"},
-      { id: 4, cardState: CardState.hiding, backgroundColor: "green"},
-      { id: 5, cardState: CardState.hiding, backgroundColor: "green"},
-      { id: 6, cardState: CardState.hiding, backgroundColor: "yellow"},
-      { id: 7, cardState: CardState.hiding, backgroundColor: "yellow"},
-      { id: 8, cardState: CardState.hiding, backgroundColor: "black"},
-      { id: 9, cardState: CardState.hiding, backgroundColor: "black"},
-      { id: 10, cardState: CardState.hiding, backgroundColor: "purple"},
-      { id: 11, cardState: CardState.hiding, backgroundColor: "purple"},
-      { id: 12, cardState: CardState.hiding, backgroundColor: "orange"},
-      { id: 13, cardState: CardState.hiding, backgroundColor: "orange"},
-      { id: 14, cardState: CardState.hiding, backgroundColor: "lightblue"},
-      { id: 15, cardState: CardState.hiding, backgroundColor: "lightblue"},
+      { id: 2, cardState: CardState.hiding, backgroundColor: "navy" },
+      { id: 3, cardState: CardState.hiding, backgroundColor: "navy" },
+      { id: 4, cardState: CardState.hiding, backgroundColor: "green" },
+      { id: 5, cardState: CardState.hiding, backgroundColor: "green" },
+      { id: 6, cardState: CardState.hiding, backgroundColor: "yellow" },
+      { id: 7, cardState: CardState.hiding, backgroundColor: "yellow" },
+      { id: 8, cardState: CardState.hiding, backgroundColor: "black" },
+      { id: 9, cardState: CardState.hiding, backgroundColor: "black" },
+      { id: 10, cardState: CardState.hiding, backgroundColor: "purple" },
+      { id: 11, cardState: CardState.hiding, backgroundColor: "purple" },
+      { id: 12, cardState: CardState.hiding, backgroundColor: "orange" },
+      { id: 13, cardState: CardState.hiding, backgroundColor: "orange" },
+      { id: 14, cardState: CardState.hiding, backgroundColor: "lightblue" },
+      { id: 15, cardState: CardState.hiding, backgroundColor: "lightblue" },
     ];
 
     cards = shuffle(cards);
@@ -59,37 +59,37 @@ class App extends Component {
     }
 
     const foundCard = this.state.cards.find(c => c.id === id);
-    
+
     if (this.state.noClick || foundCard.cardState !== CardState.hiding) {
       return;
     }
-    
+
     let noClick = false;
-    
+
     let cards = mapCardState(this.state.cards, [id], CardState.showing);
-    
-    const showingCards =  cards.filter((c) => c.cardState === CardState.showing);
-    
+
+    const showingCards = cards.filter((c) => c.cardState === CardState.showing);
+
     const ids = showingCards.map(c => c.id);
-    
+
     if (showingCards.length === 2 &&
-        showingCards[0].backgroundColor === showingCards[1].backgroundColor) {
+      showingCards[0].backgroundColor === showingCards[1].backgroundColor) {
       cards = mapCardState(cards, ids, CardState.matching);
     } else if (showingCards.length === 2) {
       let hidingCards = mapCardState(cards, ids, CardState.hiding);
-      
+
       noClick = true;
-      
-      this.setState({cards, noClick}, () => {
+
+      this.setState({ cards, noClick }, () => {
         setTimeout(() => {
           // set the state of the cards to HIDING after 1 second
-          this.setState({cards: hidingCards, noClick: false});
+          this.setState({ cards: hidingCards, noClick: false });
         }, 1000);
       });
       return;
     }
-    
-    this.setState({cards, noClick});
+
+    this.setState({ cards, noClick });
   }
 
   handleNewGame() {
@@ -98,16 +98,16 @@ class App extends Component {
       cardState: CardState.hiding
     }));
     cards = shuffle(cards);
-    this.setState({cards});
+    this.setState({ cards });
   }
 
   render() {
     const cards = this.state.cards.map((card) => (
-      <CardItem 
-        key={card.id} 
-        showing={card.cardState !== CardState.hiding} 
+      <CardItem
+        key={card.id}
+        showing={card.cardState !== CardState.hiding}
         backgroundColor={card.backgroundColor}
-        onClick={() => {this.handleClick(card.id)}}
+        onClick={() => { this.handleClick(card.id) }}
       />
     ))
 
