@@ -1,13 +1,13 @@
 const express = require("express");
-const app = express()
-const cors = require("cors")
-const morgan = require("morgan")
+const app = express();
+const cors = require("cors"); // make a request to localhost:3001 from localhose:3000 (CRA)
+const morgan = require("morgan"); // server side logging 
 const bodyParser = require("body-parser");
-const todoRoutes = require("./routes/todos")
+const todoRoutes = require("./routes/todos");
 
-app.use(morgan("tiny"))
-app.use(bodyParser.json())
-app.use(cors())
+app.use(morgan("tiny"));
+app.use(bodyParser.json());
+app.use(cors());
 app.use("/api/todos", todoRoutes);
 
 app.use( function( req, res, next) {

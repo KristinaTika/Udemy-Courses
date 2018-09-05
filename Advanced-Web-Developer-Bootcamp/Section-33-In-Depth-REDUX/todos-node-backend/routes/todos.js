@@ -16,7 +16,7 @@ router.post("/", function(req, res, next) {
 
 router.delete("/:id", function(req, res, next) {
     Todo.findByIdAndRemove(req.params.id)
-        .then( todos => res.send(todo))
+        .then( todo => res.send(todo))
         .catch(err => next(err));
 });
 

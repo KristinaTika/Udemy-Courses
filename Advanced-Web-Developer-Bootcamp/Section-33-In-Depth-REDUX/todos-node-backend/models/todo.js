@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/todos-node-backend");
+mongoose.connect("mongodb://localhost/todos-backend", { useNewUrlParser: true });
 mongoose.set("debug", true );
 mongoose.Promise = Promise;
 
