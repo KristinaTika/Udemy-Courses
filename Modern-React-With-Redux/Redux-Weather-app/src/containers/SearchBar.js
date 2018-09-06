@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -14,7 +17,7 @@ class SearchBar extends Component {
 
     handleInputChange(e) {
         console.log(e.target.value);
-        
+
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -22,10 +25,12 @@ class SearchBar extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
         // We need to go and fetch weather data
+        this.props.fetchWeather(this.state.term);
+        this.setState({
+            term: ""
+        });
     }
-
 
     render() {
         return (
@@ -48,4 +53,8 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar); // we write NULL because connect accepts 2 arguments, and 2nd is always mapDispatchToProps
