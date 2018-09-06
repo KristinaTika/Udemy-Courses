@@ -16,8 +16,7 @@ class SearchBar extends Component {
     }
 
     handleInputChange(e) {
-        console.log(e.target.value);
-
+       
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -25,7 +24,6 @@ class SearchBar extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // We need to go and fetch weather data
         this.props.fetchWeather(this.state.term);
         this.setState({
             term: ""

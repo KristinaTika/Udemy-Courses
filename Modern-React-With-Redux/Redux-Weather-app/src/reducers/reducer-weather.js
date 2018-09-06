@@ -1,9 +1,5 @@
 import { FETCH_WEATHER } from "../actions/index";
 
-
-
-
-
 export const WeatherReducer = (state = [], action) => {
 
     switch (action.type) {
@@ -11,7 +7,6 @@ export const WeatherReducer = (state = [], action) => {
             // return state.concat([action.payload.data]); // moze i ovako
             return [action.payload.data, ...state];
     }
-
 
     return state;
 }
