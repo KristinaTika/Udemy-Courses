@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PostItem = (props) => {
 
@@ -6,7 +7,9 @@ const PostItem = (props) => {
 
     return (
         <li>
-            <h2>{post.title}</h2>
+            <Link to={`/posts/${post.id}`}>
+                <h2>{post.title}</h2>
+            </Link>
             <hr />
             <p>{post.content}</p>
         </li>

@@ -4,6 +4,7 @@ import { url, api_key } from "../constants/constants";
 export const FETCH_POSTS = "FETCH_POSTS";
 export const CREATE_POST = "CREATE_POST";
 export const FETCH_SINGLE_POST = "FETCH_SINGLE_POST";
+export const DELETE_POST = "DELETE_POST";
 
 export const fetchPosts = () => {
 
@@ -28,10 +29,21 @@ export const createPost = (values, callback) => { // values --> blog post object
 }
 
 export const fetchSinglePost = (id) => {
-    const request = axios.get(`${url}${id}${api_key}`);
+
+    const request = axios.get(`${url}/${id}${api_key}`);
 
     return {
         type: FETCH_SINGLE_POST,
         payload: request
+    }
+}
+
+export const deletePost = (id, callback) => {
+    const request = axios.delete(`${url}/${id}${api_key}`)
+        .then(() => callback());
+
+    return {
+        type: DELETE_POST,
+        payload: id
     }
 }

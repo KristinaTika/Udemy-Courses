@@ -1,0 +1,9 @@
+header, footer {
+    height: 50px;
+    background-color: #415dd6;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
