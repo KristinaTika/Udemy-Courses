@@ -1,0 +1,23 @@
+header, footer {
+    background-color: orange;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+#header-btn {
+    background-color: none;
+    font-size: 20px;
+    color: black;
+}
+
+#header-btn:hover {
+    color: rgb(98, 165, 173);
+} 
+
+footer {
+    text-align: center;
+    justify-content: center;
+}

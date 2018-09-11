@@ -16,7 +16,7 @@ class WeatherList extends Component {
 
             return (
                 <ul key={name} id="list-chart">
-                    <li>{name}</li>
+                    <li><b>{name}</b></li>
                     <li>
                         <Chart data={temperatures} color="red" unit="C" />
                     </li>
@@ -36,10 +36,10 @@ class WeatherList extends Component {
             <ul id="weather-list">
                 <li>
                     <ul id="list-titles">
-                        <li>City</li>
-                        <li>Temperature (C)</li>
-                        <li>Pressure (mbar)</li>
-                        <li>Humidity (%)</li>
+                        <li><b>City</b></li>
+                        <li><b>Temperature (C)</b></li>
+                        <li><b>Pressure (mbar)</b></li>
+                        <li><b>Humidity (%)</b></li>
                     </ul>
                 </li>
 

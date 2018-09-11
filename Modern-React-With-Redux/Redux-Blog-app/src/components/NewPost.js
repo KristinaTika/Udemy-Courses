@@ -67,7 +67,6 @@ class NewPost extends Component {
 const validateForm = (values) => { // values --> object that contains all the values from the form inputs 
 
     const errors = {};
-
     // Validate the inputs from 'values'
     if (!values.title) {
         errors.title = "Please enter title!";

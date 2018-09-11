@@ -1,0 +1,26 @@
+#posts-div {
+    margin-top: 40px;
+}
+
+#btn {
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 40px;  
+}
+
+.btn a:hover, #btn:hover  {
+    color: rgb(0, 225, 255);
+}
+
+h1 {
+    text-align: center;
+}
+
+#posts-list {
+    list-style: none;
+}
+

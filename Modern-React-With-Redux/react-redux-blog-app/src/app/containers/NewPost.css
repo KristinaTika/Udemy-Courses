@@ -1,0 +1,39 @@
+#form-new-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.field-div {
+    margin: 10px;
+}
+
+.field-div label, .field-div input {
+    padding: 10px;
+}
+
+#form-new-post button {
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 40px;  
+}
+
+#form-new-post button:hover, #form-new-post a:hover {
+    color: rgb(98, 165, 173);
+}
+
+#form-new-post a {
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 40px;  
+}

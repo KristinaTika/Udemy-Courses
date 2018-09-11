@@ -1,0 +1,52 @@
+#links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#links button {
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin-right: 40px;  
+}
+
+#links > a {
+    background-color: blue;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: whitesmoke;
+    text-decoration: none;
+    margin-left: 40px;  
+}
+
+#links button:hover, #links a:hover {
+    color: rgb(98, 165, 173);
+}
+
+#single-post-details {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tags {
+    padding: 5px ;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#tags li {
+    margin: 5px;
+    background-color: rgb(209, 206, 206);
+    border-radius: 20px;
+}
