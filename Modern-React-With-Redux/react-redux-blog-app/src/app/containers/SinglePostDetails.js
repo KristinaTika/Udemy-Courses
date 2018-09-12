@@ -26,13 +26,17 @@ class SinglePostDetails extends Component {
     handleCategories(post) {
 
         const categories = [];
-        let tags = post.categories.split(" ");
+        let tags = post.categories;
+        if (!tags.indexOf(' ') > 0) {
+            return tags;
+        }
 
-        tags.forEach((tag) => {
-            categories.push(tag)
-        })
-        
+        let arrayTags = post.categories.split(" ");
+        arrayTags.forEach((tag) => {
+            categories.push(tag);
+        });
         return categories;
+
     }
 
 
@@ -42,10 +46,14 @@ class SinglePostDetails extends Component {
         if (!post) {
             return <div>Loading...</div>
         } else {
-
             const tags = this.handleCategories(post);
             let categories = tags.map((tag, i) => {
-                return <li key={i}>{tag}</li>
+                if (tag.includes("#")) {
+                    return <li key={i}><b>{tag}</b></li>
+                } else {
+                    let modifiedTag = `#${tag}`;
+                    return <li key={i}><b>{modifiedTag}</b></li>
+                }
             })
 
             return (
@@ -58,7 +66,7 @@ class SinglePostDetails extends Component {
                     <div id="single-post-details">
                         <h1>{post.title}</h1>
                         <ul id="tags">Tags:{categories}</ul>
-                        <p>{post.content}</p>
+                        <p id="post-content">{post.content}</p>
                     </div>
                 </div>
             );

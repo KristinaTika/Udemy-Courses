@@ -16,6 +16,7 @@ class NewPost extends Component {
                 <input
                     type="text"
                     {...field.input}
+                    className="content-field"
                 />
                 <div>
                     {touched ? error : ""}
@@ -25,8 +26,6 @@ class NewPost extends Component {
     }
 
     onFormSubmit(values) {
-        console.log(values);
-        
         this.props.createPost(values, () => {
             this.props.history.push("/");
         });

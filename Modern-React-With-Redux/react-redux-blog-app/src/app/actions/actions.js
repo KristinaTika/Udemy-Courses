@@ -36,7 +36,7 @@ export const fetchSinglePost = (id) => {
 }
 
 export const deletePost = (id, callback) => {
-    const request = axios.delete(`${url}/${id}${apiKey}`)
+    axios.delete(`${url}/${id}${apiKey}`)
         .then( () => callback());
 
     return {

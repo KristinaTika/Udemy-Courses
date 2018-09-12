@@ -1,16 +1,17 @@
 header, footer {
-    background-color: orange;
+    background-color: #3F51B5;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+    color: #C5CAE9;
 }
 
 #header-btn {
     background-color: none;
     font-size: 20px;
-    color: black;
+    color: #C5CAE9;
 }
 
 #header-btn:hover {
