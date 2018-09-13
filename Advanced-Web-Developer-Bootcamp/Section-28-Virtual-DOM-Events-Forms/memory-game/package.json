@@ -2,6 +2,7 @@
   "name": "memory-game",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kristinatika.gitlab.io/memory-game",
   "dependencies": {
     "global": "^4.3.2",
     "react": "^16.4.2",

@@ -1,0 +1,17 @@
+#form-new-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+#form-new-todo input, button {
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    border-radius: 10px;
+    background-color: #ca540c;
+    color: #f5e5d9;
+}

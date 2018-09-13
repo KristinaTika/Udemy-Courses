@@ -1,0 +1,48 @@
+#todo-item {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 500px;
+}
+
+#todo-item li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    background-color: #285678;
+    color: white;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#todo-item button {
+    padding: 1px 5px;
+    font-size: 15px;
+}
+
+@media (max-width:600px) {
+    #todo-item li {
+        flex-direction: column-reverse;
+        position: relative;
+        width: 370px;
+        padding: 10px;
+    }
+
+    #todo-item button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 1;
+        margin-bottom: 8px;
+    }
+
+}
+
+@media(max-width:400px) {
+    #todo-item li {
+        width: 270px;
+    }
+}
