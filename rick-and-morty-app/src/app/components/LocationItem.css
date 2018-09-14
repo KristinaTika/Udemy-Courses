@@ -1,0 +1,10 @@
+#location-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#location-info p {
+    margin: 10px;
+}

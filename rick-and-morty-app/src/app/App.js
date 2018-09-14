@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import './App.css';
+import Header from './partials/Header';
+import CharactersList from './containers/CharactersList';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import EpisodesList from './containers/EpisodesList';
+import LocationList from './containers/LocationList';
+import SingleCharacter from './containers/SingleCharacter';
+import Footer from './partials/Footer';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/home" component={CharactersList} />
+          <Route path="/characters/:id" component={SingleCharacter} />
+          <Route path="/episodes" component={EpisodesList} />
+          <Route path="/locations" component={LocationList} />
+          <Redirect from="/" to="/home" />
+        </Switch>
+        <Footer />
+      </div>
+    );
+  }
+}
+
+export default App;

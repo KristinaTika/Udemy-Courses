@@ -13,3 +13,4 @@ const TodoItem = ({ todo, handleRemoveTodo }) => {
 };
 
 export default connect(null, { removeTodo })(TodoItem);
+
