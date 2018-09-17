@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { charactersService } from '../../services/characters';
+import './SingleCharacter.css';
 
 class CharacterItem extends Component {
     constructor(props) {
@@ -27,16 +28,16 @@ class CharacterItem extends Component {
         if (!character) {
             return renderCharacter;
         }
-        renderCharacter = <div>
-            <p>Character name: {name}</p>
+        renderCharacter = <div id="single-character-info">
+            <h2><b>Character name:</b> {name}</h2>
             <div>
                 <img src={image} alt={name} />
             </div>
-            <p>Gender: {gender}</p>
-            <p>Origin: {origin}</p>
-            <p>Species: {species}</p>
-            <p>Status: {status}</p>
-            <p>Planet: {location}</p>
+            <p><b>Gender:</b> {gender}</p>
+            <p><b>Origin:</b> {origin}</p>
+            <p><b>Species</b>: {species}</p>
+            <p><b>Status:</b> {status}</p>
+            <p><b>Planet:</b> {location}</p>
         </div>
 
         return (

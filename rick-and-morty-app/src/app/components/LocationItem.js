@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { locationService } from '../../services/locations';
-import { charactersService } from '../../services/characters';
 import './LocationItem.css';
 
 class LocationItem extends Component {
@@ -26,7 +25,10 @@ class LocationItem extends Component {
 
     renderResidents() {
         const { residents } = this.state;
-        return residents.map((res, i) => {
+        if(residents.length === 0) {
+            return <li>There are no residents.</li>
+        }
+        return residents.slice(0, 10).map((res, i) => {
             return <li key={i}>{res}</li>
         })
     }
@@ -35,15 +37,15 @@ class LocationItem extends Component {
 
         const { dimension, name, type } = this.props.loc;
         return (
-            <div id="location-info">
+            <li>
                 <p><b>Name:</b> {name}</p>
                 <p><b>Dimension</b>: {dimension}</p>
                 <p><b>Type:</b> {type}</p>
-                <ul>
-                    <b>Residents:</b>
+                <p><b>Residents:</b></p>
+                <ul className="location-info">
                     {this.renderResidents()}
                 </ul>
-            </div>
+            </li>
         );
     }
 }

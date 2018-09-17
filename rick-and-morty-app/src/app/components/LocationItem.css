@@ -1,10 +1,11 @@
-#location-info {
+.location-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
-#location-info p {
-    margin: 10px;
+.location-info li {
+    list-style: none;
 }
