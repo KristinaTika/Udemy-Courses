@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { beerService } from '../../services/beers';
 import PunkBeerItem from '../components/PunkBeerItem';
+import './PunkBeerList.css';
 
 class PunkBeerList extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class PunkBeerList extends Component {
         this.state = {
             beers: [],
         }
+
         this.renderPunkBeers = this.renderPunkBeers.bind(this);
     }
 
@@ -31,7 +33,7 @@ class PunkBeerList extends Component {
     render() {
         return (
             <div>
-                <ul>
+                <ul className="list-beers">
                     {this.renderPunkBeers()}
                 </ul>
             </div>

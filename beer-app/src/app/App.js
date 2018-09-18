@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './components/About';
 import Header from './partials/Header';
 import Footer from './partials/Footer';
+import FavoriteBeer from './components/FavoriteBeer';
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/beers" component={PunkBeerList} />
+          <Route path="/favorites" component={FavoriteBeer} />
           <Route path="/about" component={About} />
           <Redirect from="/" to="/beers"/>
         </Switch>

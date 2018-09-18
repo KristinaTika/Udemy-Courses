@@ -1,0 +1,29 @@
+.beer-item-li {
+    border: 1px solid #009688;
+    list-style: none;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+l.beer-item-li button {
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: #009688;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #B2DFDB;
+}
+
+.beer-img {
+    display: block;
+    height: 250px;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.favorite-beer {
+    background-color: #FFC107;
+    color: black;
+}

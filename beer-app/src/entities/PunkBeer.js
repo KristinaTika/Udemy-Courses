@@ -1,8 +1,7 @@
 export class PunkBeer {
-    constructor(id, abv, boilVolume, type, contributedBy, description, firstBrewed, foodPairing, image, name, ph, tagline, volume) {
+    constructor(id, abv, type, contributedBy, description, firstBrewed, foodPairing, image, name, ph, tagline, ingredients) {
         this.id = id;
         this.abv = abv;
-        this.boilVolume = boilVolume;
         this.type = type;
         this.contributedBy = contributedBy;
         this.description = description;
@@ -12,6 +11,6 @@ export class PunkBeer {
         this.name = name;
         this.ph = ph;
         this.tagline = tagline;
-        this.volume = volume;
+        this.ingredients = ingredients;
     }
 }

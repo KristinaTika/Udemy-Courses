@@ -8,8 +8,9 @@ const Header = (props) => {
         <header>
             <h2>Beer Lover </h2>
             <nav>
-                <Link to="/about">About</Link>
                 <Link to="/beers">Home</Link>
+                <Link to="/favorites">Favorite</Link>
+                <Link to="/about">About</Link>
             </nav>
         </header>
     );

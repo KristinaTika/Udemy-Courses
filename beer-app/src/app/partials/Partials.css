@@ -3,8 +3,26 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    background-color: #009688;
+    color: #B2DFDB;
 }
 
 header nav a {
   margin: 0 20px;
+  color: #B2DFDB;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: #E040FB;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #009688;
+  color: #B2DFDB;
+  height: 50px;
+  margin-top: 20px;
 }
