@@ -21,7 +21,7 @@ class Characters {
 }
 
 const mapCharacters = (res) => {
-    let results = res.data.results;
+    let results = res.data.results || res.data;
     return results.map((res) => {
         const myCharacter = {
             id: res.id,

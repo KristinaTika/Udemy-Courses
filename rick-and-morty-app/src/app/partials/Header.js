@@ -9,6 +9,7 @@ const Header = (props) => {
             <h1>Rick and Morty App </h1>
             <nav>
                 <Link to="/home">Home</Link>
+                <Link to="/characters">All Characters</Link>
                 <Link to="/locations">Locations</Link>
                 <Link to="/episodes">Episodes</Link>
             </nav>

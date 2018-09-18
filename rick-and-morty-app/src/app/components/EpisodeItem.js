@@ -8,9 +8,12 @@ class EpisodeItem extends Component {
 
         this.state = {
             characters: [],
+            showCharacters: false,
         };
 
-        this.renderCharaters = this.renderCharacters.bind(this);
+        this.renderCharacters = this.renderCharacters.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
     componentDidMount() {
@@ -24,23 +27,37 @@ class EpisodeItem extends Component {
             })
     }
 
+    handleMouseOver(e) {
+        this.setState({
+            showCharacters: true
+        });
+    }
+
+    handleMouseLeave() {
+        this.setState({
+            showCharacters: false
+        });
+    }
+
     renderCharacters() {
-        const { characters } = this.state;
-        return characters.map((res, i) => {
-            return <li key={i}>{res}</li>
-        })
+        const { characters, showCharacters } = this.state;
+        return showCharacters
+            ? characters.map((res, i) => {
+                return <li key={i} className="character-li">{res}</li>
+            })
+            : "";
     }
 
     render() {
-        const { name, ep, airDate } = this.props.ep;
+        const { name, episode, airDate } = this.props.ep;
 
         return (
             <li>
-                <p><b>Episode:</b>{ep}</p>
-                <p><b>Name:</b>{name}</p>
-                <p><b>Air Date:</b>{airDate}</p>
-                <ul>
-                    <b>Characters:</b>
+                <div><h3>Episode:</h3>{episode}</div>
+                <div><h3>Name:</h3>{name}</div>
+                <div><h3>Air Date:</h3>{airDate}</div>
+                <ul onMouseOver={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
+                    <h3 className="episode-character">Characters:</h3>
                     {this.renderCharacters()}
                 </ul>
             </li>

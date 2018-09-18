@@ -24,17 +24,17 @@ class EpisodesList extends Component {
     }
 
     renderEpisodes() {
-        const {episodes} = this.state;
+        const { episodes } = this.state;
 
         return episodes.map((ep) => {
             return <EpisodeItem ep={ep} key={ep.id} />
         });
     }
-    
+
     render() {
         return (
             <div>
-                <ul>
+                <ul id="list-episodes">
                     {this.renderEpisodes()}
                 </ul>
             </div>

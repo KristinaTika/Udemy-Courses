@@ -1,0 +1,11 @@
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    overflow: auto;
+    resize: horizontal;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+

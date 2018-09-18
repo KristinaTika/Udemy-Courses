@@ -38,10 +38,10 @@ class LocationItem extends Component {
         const { dimension, name, type } = this.props.loc;
         return (
             <li>
-                <p><b>Name:</b> {name}</p>
-                <p><b>Dimension</b>: {dimension}</p>
-                <p><b>Type:</b> {type}</p>
-                <p><b>Residents:</b></p>
+                <div><h3>Name:</h3> {name}</div>
+                <div><h3>Dimension: </h3>{dimension}</div>
+                <div><h3>Type:</h3> {type}</div>
+                <div><h3>Residents:</h3></div>
                 <ul className="location-info">
                     {this.renderResidents()}
                 </ul>
