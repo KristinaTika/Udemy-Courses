@@ -9,8 +9,8 @@ const Header = (props) => {
             <h1>Rick and Morty App </h1>
             <nav>
                 <Link to="/characters">Home</Link>
-                {/* <Link to="/locations">Locations</Link>
-                <Link to="/episodes">Episodes</Link> */}
+                <Link to="/location">Locations</Link>
+                <Link to="/episodes">Episodes</Link>
             </nav>
         </header>
     );

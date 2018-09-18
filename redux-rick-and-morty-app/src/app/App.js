@@ -5,7 +5,8 @@ import CharacterList from './containers/CharacterList';
 import SingleCharacter from './containers/SingleCharacter';
 import Header from './partials/Header';
 import Footer from './partials/Footer';
-
+import LocationList from './containers/LocationList';
+import EpisodeList from './containers/EpisodeList';
 
 class App extends Component {
   render() {
@@ -15,6 +16,8 @@ class App extends Component {
        <Switch>
          <Route path="/characters/:id" component={SingleCharacter} />
          <Route path="/characters" component={CharacterList} />
+         <Route path="/location" component={LocationList} />
+         <Route path="/episodes" component={EpisodeList} />
          <Redirect from="/" to="/characters" />
        </Switch>
        <Footer />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCharacters } from '../action-creators/actionCreators';
 import CharacterItem from '../components/CharacterItem';
+import './CharacterList.css';
 
 class CharacterList extends Component {
     constructor(props) {

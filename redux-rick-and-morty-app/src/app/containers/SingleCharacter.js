@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCharacter } from '../action-creators/actionCreators';
+import './SingleCharacter.css';
 
 class SingleCharacter extends Component {
 
@@ -17,8 +18,8 @@ class SingleCharacter extends Component {
         }
         
         renderSingleCharacter = (
-            <div>
-                <h2><b>Character name:</b> {singleCharacter.name}</h2>
+            <div className="single-character-div">
+                <h2>Character name: {singleCharacter.name}</h2>
                 <div>
                     <img src={singleCharacter.image} alt={singleCharacter.name} />
                 </div>

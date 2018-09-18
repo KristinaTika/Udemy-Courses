@@ -1,0 +1,11 @@
+.single-character-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+}
+
+.single-character-div p, h2 {
+   padding: 10px; 
+}
