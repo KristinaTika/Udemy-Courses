@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { beerService } from '../../services/beers';
 import PunkBeerItem from '../components/PunkBeerItem';
 import './PunkBeerList.css';
+import Loader from '../components/Loader';
 
 class PunkBeerList extends Component {
     constructor(props) {
@@ -25,6 +26,9 @@ class PunkBeerList extends Component {
 
     renderPunkBeers() {
         const { beers } = this.state;
+        if (beers.length === 0) {
+            return <Loader />
+        }
         return beers.map((beer) => {
             return <PunkBeerItem beer={beer} key={beer.id} />
         })
@@ -32,7 +36,7 @@ class PunkBeerList extends Component {
 
     render() {
         return (
-            <div>
+            <div id="beer-list-div">
                 <ul className="list-beers">
                     {this.renderPunkBeers()}
                 </ul>

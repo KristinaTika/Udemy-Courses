@@ -4,12 +4,12 @@ header {
     align-items: center;
     height: 50px;
     background-color: #009688;
-    color: #B2DFDB;
+    color: #FFFFFF;
 }
 
 header nav a {
   margin: 0 20px;
-  color: #B2DFDB;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
@@ -22,7 +22,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   background-color: #009688;
-  color: #B2DFDB;
+  color: #FFFFFF;
   height: 50px;
   margin-top: 20px;
 }

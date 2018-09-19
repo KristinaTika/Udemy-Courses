@@ -13,6 +13,8 @@ class PunkBeerItem extends Component {
     }
 
     handleClick(e) {
+        e.preventDefault();
+
         const { favBeer } = this.state;
 
         this.setState({
@@ -20,26 +22,25 @@ class PunkBeerItem extends Component {
         });
 
         localStorage.setItem("fav-beer", JSON.stringify(this.props.beer));
-
         this.setState({
             favBeer: !favBeer
         });
-
     }
 
     render() {
         const { name, image, abv, description } = this.props.beer;
-
         return (
             <li className="beer-item-li">
-                <div>{name}</div>
+                <h3>{name}</h3>
                 <div>
                     <img src={image} alt={name} className="beer-img" />
-                </div>
                 <p>{abv}% alc</p>
                 <button onClick={this.handleClick} className={this.state.favBeer ? "favorite-beer" : ""}>Favorite</button>
-                <p>{description}</p>
-                <Link to={"/beers/" + this.props.beer.id}>Read More</Link>
+                </div>
+                <div className="read-more-button">
+                    <p>{description}</p>
+                    <Link to={"/beers/" + this.props.beer.id}>Read More</Link>
+                </div>
             </li>
         );
     }
