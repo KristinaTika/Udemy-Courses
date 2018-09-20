@@ -12,7 +12,7 @@ class CharacterList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchCharacters()
+        this.props.fetchCharacters();
     }
 
     renderCharacters () {
@@ -23,7 +23,6 @@ class CharacterList extends Component {
     }
 
     render() {
-
         return(
             <ul className="list-characters">
                 {this.renderCharacters()}
