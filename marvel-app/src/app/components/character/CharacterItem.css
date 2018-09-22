@@ -1,0 +1,21 @@
+.characters-li-item {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* height: 500px; */
+    justify-content: center;
+    align-content: center;
+}
+
+.characters-li-item>div {
+    height: 400px;
+}
+
+.characters-li-item>div>img {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.characters-li-item p {
+    margin: 5px;
+}

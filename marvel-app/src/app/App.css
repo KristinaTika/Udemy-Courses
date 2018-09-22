@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+/* a:hover {
+  color: #FFFFFF;
+} */
