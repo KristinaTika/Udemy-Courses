@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { characterService } from '../../services/characterService';
+import { characterService } from '../../../services/characterService';
 import './Home.css';
-import CharacterItem from '../components/character/CharacterItem';
+import CharacterItem from '../../components/character/CharacterItem';
 
 class Home extends Component {
     constructor(props) {

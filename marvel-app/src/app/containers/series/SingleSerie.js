@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { seriesService } from '../../services/seriesService';
+import { seriesService } from '../../../services/seriesService';
 import './SingleSerie.css';
 
 class SingleSerie extends Component {

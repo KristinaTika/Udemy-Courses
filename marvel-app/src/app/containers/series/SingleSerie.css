@@ -1,23 +1,17 @@
-#single-character-container {
+#single-serie-container {
     margin: 30px;
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
 
-h3 {
-    margin: 20px;
-    text-align: center;
-    font-size: 40px;
-}
-
-#single-character-container>div>img {
+#single-serie-container>div>img {
     border-radius: 20px;
     margin-right: 20px;
     width: 500px;
 }
 
-#single-character-container>div>ul {
+#single-serie-container>div>ul {
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -25,12 +19,8 @@ h3 {
     align-items: center;
     line-height: 25px;
 }
-#single-character-container>div h4 {
+#single-serie-container>div h4 {
     margin: 10px;
 }
 
-#st-cm-cont {
-    display: flex;
-    justify-content: space-around;
-}
 

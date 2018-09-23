@@ -3,13 +3,13 @@ import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './partials/Header';
 import Footer from './partials/Footer';
-import Home from './pages/Home';
-import SingleCharacter from './pages/SingleCharacter';
-import ComicsPage from './pages/ComicsPage';
-import SingleComic from './pages/SingleComic';
-import SingleSerie from './pages/SingleSerie';
-import SeriesPage from './pages/SeriesPage';
-import StoryItem from './components/StoryItem';
+import Home from './containers/characters/Home';
+import SingleCharacter from './containers/characters/SingleCharacter';
+import ComicsPage from './containers/comics/ComicsPage';
+import SingleComic from './containers/comics/SingleComic';
+import SingleSerie from './containers/series/SingleSerie';
+import SeriesPage from './containers/series/SeriesPage';
+import SingleStory from './containers/SingleStory';
 
 const App = (props) => {
 
@@ -21,7 +21,7 @@ const App = (props) => {
         <Route path="/characters/:id" component={SingleCharacter} />
         <Route path="/series/:id" component={SingleSerie} />
         <Route path="/series/" component={SeriesPage} />
-        <Route path="/stories/:id" component={StoryItem} />
+        <Route path="/stories/:id" component={SingleStory} />
         <Route path="/comics/:id" component={SingleComic} />
         <Route path="/comics/" component={ComicsPage} />
         <Redirect from="/" to="/home" />

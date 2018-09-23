@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { seriesService } from '../../services/seriesService';
-import './SeriesPage.css';
-import SerieItem from '../components/series/SerieItem';
+import { comicsService } from '../../../services/comicsService';
+import './ComicsPage.css';
+import ComicItem from '../../components/comics/ComicItem';
 
-class SeriesPage extends Component {
+class ComicsPage extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            series: null,
+            comics: null,
             searchValue: "",
         }
 
@@ -25,30 +25,30 @@ class SeriesPage extends Component {
     handleSubmit(e) {
         e.preventDefault();
         let { searchValue } = this.state;
-        seriesService.fetchSeries(searchValue)
+        comicsService.fetchComics(searchValue)
             .then((res) => {
                 this.setState({
-                    series: res
+                    comics: res
                 });
             });
     }
 
     render() {
-        let displaySeries = <div>You haven't searched for anything yet.</div>
-        const { series } = this.state;
+        let displayComics = <div>You haven't searched for anything yet.</div>
+        const { comics } = this.state;
         return (
-            <div id="series-container">
+            <div id="comics-container">
                 <p>Welcome to Marvel App. Start exploring Marvel universe by searching comics. </p>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="searchValue" placeholder="Search Series" onChange={this.handleChange} />
+                    <input type="text" name="searchValue" placeholder="Search Comics" onChange={this.handleChange} />
                     <button onClick={this.handleClick}>Search</button>
                 </form>
-                <ul id="series-list">
-                    {!series ? displaySeries : series.length === 0 ? <div>No results </div> : series.map(c => (<SerieItem key={c.id} serie={c} />))}
+                <ul id="comics-list">
+                    {!comics ? displayComics : comics.length === 0 ? <div>No results </div> : comics.map(c => (<ComicItem key={c.id} comic={c} />))}
                 </ul>
             </div>
         );
     }
 }
 
-export default SeriesPage;
+export default ComicsPage;

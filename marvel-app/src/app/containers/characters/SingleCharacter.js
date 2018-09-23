@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { characterService } from '../../services/characterService';
-import { comicsService } from '../../services/comicsService';
-import { seriesService } from '../../services/seriesService';
-import { storiesService } from '../../services/storiesService';
+import { characterService } from '../../../services/characterService';
+import { comicsService } from '../../../services/comicsService';
+import { seriesService } from '../../../services/seriesService';
+import { storiesService } from '../../../services/storiesService';
 import './SingleCharacter.css';
 import { Link } from 'react-router-dom';
-import { Serie } from '../../entities/Serie';
-import { Story } from '../../entities/Story';
-import { Comic } from '../../entities/Comic';
+import { Serie } from '../../../entities/Serie';
+import { Story } from '../../../entities/Story';
+import { Comic } from '../../../entities/Comic';
 
 class SingleCharacter extends Component {
     constructor(props) {
@@ -51,8 +51,6 @@ class SingleCharacter extends Component {
     }
 
     render() {
-        // var a = seriesService.fetchSingleSerie(23045);
-        // console.log(a);
         const character = this.state.character[0];
         const { series, stories, comics } = this.state;
         return (
@@ -74,7 +72,7 @@ class SingleCharacter extends Component {
                                 {
                                     !series
                                     ? <div> loading series </div>
-                                    : this.renderTitles(series)
+                                    : series.length === 0 ? <div> loading series </div> : this.renderTitles(series)
                                 }
                             </ul>
                                 <h4> Stories: </h4>
@@ -82,6 +80,7 @@ class SingleCharacter extends Component {
                                 {
                                     !stories
                                     ? <div> loading stories </div>
+                                    : stories.length === 0 ? <div> loading stories </div>
                                     : this.renderTitles(stories)
                                 }
                             </ul>
@@ -90,6 +89,7 @@ class SingleCharacter extends Component {
                                 {
                                     !comics
                                     ? <div> loading comics </div>
+                                    : comics.length === 0 ? <div> loading comics </div>
                                     : this.renderTitles(comics)
                                 }
                             </ul>

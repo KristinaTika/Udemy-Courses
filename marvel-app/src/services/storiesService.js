@@ -8,6 +8,11 @@ class StoriesService {
         return axios.get(`${urlEndpoint}characters/${id}/stories?&ts=${ts}&apikey=${publicApiKey}&hash=${apiHash}`)
         .then(res => mapStories(res));
     }
+
+    fetchSingleStory(id) {
+        return axios.get(`${urlEndpoint}stories/${id}?&ts=${ts}&apikey=${publicApiKey}&hash=${apiHash}`)
+        .then(res => mapStories(res));
+    }
 }
 
 const mapStories = (res) => {

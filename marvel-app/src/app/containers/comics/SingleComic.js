@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { comicsService } from '../../services/comicsService';
+import { comicsService } from '../../../services/comicsService';
 import './SingleComic.css';
 
 class SingleComic extends Component {
