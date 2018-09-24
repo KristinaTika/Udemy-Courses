@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.flag {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.flag img {
+    height: 400px;
+}
+
+#single-country-container>div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#single-country-sub-container {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    line-height: 23px;
+}
+
+
+#single-country-sub-container ul {
+    list-style: none;
+}
