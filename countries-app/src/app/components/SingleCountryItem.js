@@ -1,5 +1,6 @@
 import React from 'react';
 import "./SingleCountryItem.css";
+import CountryMap from './CountryMap';
 
 const SingleCountryItem = (props) => {
 
@@ -12,30 +13,31 @@ const SingleCountryItem = (props) => {
         })
     }
 
-    const { name, domain, nameCode, callingCode, capital, region, subregion, population, timezone, borders, nativeName, currencies, languages, translations, flag, regionalBlocs } = props.country;
-    const trans = translations.split(", ");
-
-    const style = {
-        backgroundImage: flag
+    const checkString = (string) => {
+        return string ? string : "No info available"
     }
 
+    const { name, domain, nameCode, callingCode, capital, region, subregion, population, timezone, borders, nativeName, currencies, languages, translations, flag, regionalBlocs } = props.country;
+    
+    const trans = translations.split(", ");
+    
     return (
         <div id="single-country-container">
             <h1> {name}</h1>
             <div className="flag">
                 <img src={flag} alt={name}  />
             </div>
+            <CountryMap map = {props.country.map} name={props.country.name}/>
             <div id="single-country-sub-container">
                 <div>
-
                     <h3> Native name</h3>
-                    <p>  {nativeName}</p>
+                    <p>  {checkString(nativeName)}</p>
                     <h3> Capital city</h3>
-                    <p> {capital}</p>
+                    <p> {checkString(capital)}</p>
                     <h3> Calling code</h3>
                     <ul>  {mapItems(callingCode)}</ul>
                     <h3> Name code</h3>
-                    <p>  {nameCode}</p>
+                    <p>  {checkString(nameCode)}</p>
                 </div>
                 <div>
                     <h3> Timezone </h3>
@@ -55,11 +57,11 @@ const SingleCountryItem = (props) => {
                         {mapItems(languages)}
                     </ul>
                     <h3> Population </h3>
-                    <p> {population}</p>
+                    <p> {checkString(population)}</p>
                     <h3>  Region</h3>
-                    <p>{region}</p>
+                    <p>{checkString(region)}</p>
                     <h3>  Subregion</h3>
-                    <p> {subregion}</p>
+                    <p> {checkString(subregion)}</p>
                     <h3>  Regional blocs</h3>
                     <ul>   {mapItems(regionalBlocs)}</ul>
                     <h3> Translations</h3>

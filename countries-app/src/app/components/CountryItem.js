@@ -4,7 +4,6 @@ import "./CountryItem.css";
 
 const CountryItem = (props) => {
 
-    // console.log(props.country);
     const { name, flag } = props.country;
 
     return (

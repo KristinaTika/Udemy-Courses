@@ -1,4 +1,4 @@
-import { allCountriesEndpoint, countryNameEndpoint } from '../shared/constants';
+import { allCountriesEndpoint, countryNameEndpoint, regionEndpoint, capitalEndpoint } from '../shared/constants';
 import { Country } from "../entities/Country";
 import axios from "axios";
 
@@ -6,23 +6,13 @@ class CountryService {
 
     fetchAllCountries() {
         return axios.get(allCountriesEndpoint)
-            .then(res => {
+            .then(res => mapListOfCountries(res))
                 // console.log(res.data);
-                return res.data.map(country => {
-                    const name = country.name;
-                    const flag = country.flag;
-                    const myCountry = {
-                        name,
-                        flag
-                    }
-
-                    return myCountry;
-                });
-            });
+             
     }
 
-    fetchSingleCountry(value) {
-        return axios.get(`${countryNameEndpoint}${value}?fullText=true`)
+    fetchSingleCountry(countryName) {
+        return axios.get(`${countryNameEndpoint}${countryName}`)
             .then(res => mapCountries(res));
                 // console.log(res.data);
                 // return res.data.map(country => {
@@ -51,6 +41,34 @@ class CountryService {
                 //     return myCountry;
                 // });   
     }
+
+    fetchRegion(regionName) {
+        return axios.get(`${regionEndpoint}${regionName}`)
+        .then(res => mapListOfCountries(res));
+    }
+
+    fetchSearchedCountry(countryName) {
+        return axios.get(`${countryNameEndpoint}${countryName}`)
+        .then(res => mapListOfCountries(res));
+    }
+
+    fetchCapital(capital) {
+        return axios.get(`${capitalEndpoint}${capital}`)
+        .then(res => mapListOfCountries(res));
+    }
+}
+
+const mapListOfCountries = res => {
+    return res.data.map(country => {
+        const name = country.name;
+        const flag = country.flag;
+        const myCountry = {
+            name,
+            flag
+        }
+
+        return myCountry;
+    });
 }
 
 const mapCountries = (res) => {
@@ -80,7 +98,6 @@ const mapCountries = (res) => {
         return myCountry;
     });   
 }
-
 
 const mapArray =(array) => {
     return array.map(element => {

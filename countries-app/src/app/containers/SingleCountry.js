@@ -8,33 +8,44 @@ class SingleCountry extends Component {
         super(props)
         this.state = {
             singleCountry: [],
+            errorMessage: "",
         }
         this.showCountries = this.showCountries.bind(this)
     }
 
     componentDidMount() {
         countryService.fetchSingleCountry(this.props.match.params.name)
-        .then (response => {
-            this.setState({
-                singleCountry:response
+            .then(response => {
+                this.setState({
+                    singleCountry: response
+                })
             })
-        })
+            .catch((error) => {
+                this.setState({
+                    errorMessage: error
+                })
+            })
     }
 
     showCountries(countries) {
-       if (!countries) {
+        if (!countries) {
             return <div>Loading</div>
         }
         return countries.map(country => {
-            return <SingleCountryItem key={country.name} country={country}/>
+            return <SingleCountryItem key={country.name} country={country} />
         })
     }
 
     render() {
-       
+
         return (
             <div>
-              {this.showCountries(this.state.singleCountry)}
+                <ul>
+                    {this.showCountries(this.state.singleCountry)}
+                </ul>
+                <div>
+                    {this.state.errorMessage !== "" ? "Something went wrong" : ""}
+                </div>
             </div>
         );
     }

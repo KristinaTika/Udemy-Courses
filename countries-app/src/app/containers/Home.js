@@ -20,7 +20,12 @@ class Home extends Component {
                 this.setState({
                     countries: response,
                 })
-            })
+            })    
+            .catch((error) => {
+                this.setState({
+                    errorMessage: error
+                });
+            });
     }
 
     showCountries(countries) {
@@ -51,6 +56,9 @@ class Home extends Component {
                     {/* {displayCountries} */}
                     {this.showCountries(countries)}
                 </ul>
+                <div>
+                    {this.state.errorMessage !== "" ? "Couldn't load countries" : ""}
+                </div>
             </div>
         );
     }
