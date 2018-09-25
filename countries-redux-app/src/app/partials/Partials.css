@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 20px;
+    background-color: blueviolet;
+    color: white;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+header a:hover {
+    border-bottom: 1px solid white;
+    color: yellow;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+}
