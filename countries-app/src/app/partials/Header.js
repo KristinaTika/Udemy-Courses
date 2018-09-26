@@ -10,7 +10,7 @@ const Header = (props) => {
             <ul>
                 <Link to="/home">Home </ Link>
                 <Link to="/countries">Countries </ Link>
-                <Link to="/quiz">Quiz </ Link>
+                <Link to="/quiz">Geo Quiz </ Link>
             </ul>
         </header>
     );

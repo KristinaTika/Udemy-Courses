@@ -3,10 +3,10 @@ import './App.css';
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from './partials/Header';
 import Footer from './partials/Footer';
-import Home from './containers/Home';
 import SingleCountry from './containers/SingleCountry';
-import Search from './containers/Search';
+import Home from './containers/Home';
 import Quiz from './containers/Quiz';
+import CountriesList from './containers/CountriesList';
 
 
 class App extends Component {
@@ -17,9 +17,9 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route path="/home" component={Search} />
+            <Route path="/home" component={Home} />
             <Route path="/countries/:name" component={SingleCountry} />
-            <Route path="/countries" component={Home} />
+            <Route path="/countries" component={CountriesList} />
             <Route path="/quiz" component={Quiz} />
             <Redirect from="/" to="/home" />
           </Switch>

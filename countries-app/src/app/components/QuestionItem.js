@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./QuestionItem.css"
 
 
 class QuestionItem extends Component {
@@ -7,11 +7,11 @@ class QuestionItem extends Component {
         super(props)
         this.state = {
             correctAnswer: false,
+            incorrectAnswer: false
         }
 
         this.mapIncorrectAnswers = this.mapIncorrectAnswers.bind(this);
         this.handleAnswer = this.handleAnswer.bind(this);
-        this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
     }
 
     handleAnswer(e) {
@@ -28,30 +28,13 @@ class QuestionItem extends Component {
                 incorrectAnswer: false
             });
         };
+
     }
-
-    handleSubmitAnswer(e) {
-
-        let { correctAnswer } = this.state;
-
-        if (correctAnswer === true) {
-            this.props.plusCounter()
-        }
-        // if (incorrectAnswer === true) {
-        //     minusCounter++;
-        // }
-
-        this.setState({
-            correctAnswer: false,
-            incorrectAnswer: false,
-        });
-    }
-
 
     mapIncorrectAnswers(answers) {
         return answers.map((a) => {
-            return <li key={a}>
-                <input type="radio" name="question" value="incorrectAnswer" onClick={this.handleAnswer} />{a}
+            return <li key={a} className={this.props.finish ? "red" : ""}>
+                <input type="radio" name="question" value="incorrectAnswer" onClick={this.handleAnswer}  />{a}
             </li>
         })
     }
@@ -62,13 +45,16 @@ class QuestionItem extends Component {
             <li>
                 <h2>{question}</h2>
                 <form>
-                    <input type="radio" name="question" value="correctAnswer" onClick={this.handleAnswer} /> {correctAnswer}
+                    <div className={this.props.finish ? "green" : ""} >
+                    <input type="radio" name="question" value="correctAnswer" onClick={this.handleAnswer} required/> {correctAnswer} 
+                    </div>
                     <ul>
                         {this.mapIncorrectAnswers(incorrectAnswers)}
                     </ul>
-                    <input type="button" value="My answer" onClick={this.handleSubmitAnswer} required />
-                    < hr />
                 </form>
+                <div>
+                    {/* {this.props.finish ? "Correct answer is:" + correctAnswer : ""} */}
+                </div>
             </li>
         );
     }

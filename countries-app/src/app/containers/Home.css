@@ -1,22 +1,37 @@
-#all-countries-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    overflow: auto;
-    resize: horizontal;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
+.home-container {
     text-align: center;
+    margin-top: 30px;
+}
+
+.home-container form {
+    font-size: 21px;
+}
+
+.home-container form input {
+    margin-left: 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search {
+    width: 75%;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.error-red {
+    color: red;
     margin-top: 20px;
-    list-style: none;
 }
 
-#all-countries-list li {
-    border: 1px solid #448AFF;
-    border-radius: 20px;
+@media (max-width:450px) {
+    .input-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }
-
-#all-countries-list li a {
-    text-decoration: none;
-    font-size:20px;
-}
-

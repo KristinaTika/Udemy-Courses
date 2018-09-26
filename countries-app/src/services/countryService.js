@@ -118,7 +118,7 @@ const mapLanguages =(array) => {
 }
 
 const mapTranslations = (element) => {
-        return `br: ${element.br}, de: ${element.de}, es: ${element.es}, fa: ${element.fa}, fr: ${element.fr}, hr: ${element.hr}, it: ${element.it}, ja: ${element.ja}, nl: ${element.nl}, pt: ${element.pt}`;
+        return `brazilian:  ${element.br}, german:  ${element.de}, spanish:  ${element.es}, farsi:  ${element.fa}, french:  ${element.fr}, croatian:  ${element.hr}, italian:  ${element.it}, japanese:  ${element.ja}, dutch:  ${element.nl}, portuguese:  ${element.pt}`;
 }
 
 const mapBlocks =(array) => {

@@ -8,12 +8,11 @@ class Quiz extends Component {
         this.state = {
             questions: [],
             errorMessage: "",
-            plusCounter: 0,
-            minusCounter: 0,
+            finish: false,
+            answerCounter: 0
         }
         this.renderQuestions = this.renderQuestions.bind(this);
         this.handleQuizSubmission = this.handleQuizSubmission.bind(this);
-        this.plusCounter = this.plusCounter.bind(this);
     }
 
 
@@ -32,34 +31,30 @@ class Quiz extends Component {
     }
 
     renderQuestions() {
-        const { questions } = this.state;
+        const { questions, finish } = this.state;
         if (!questions) {
             return <div>Loading Quiz</div>
         }
         return questions.map((q, i) => {
-            return <QuestionItem key={i} q={q} plusCounter={this.plusCounter} />
+            return <QuestionItem key={i} q={q} finish={finish} handleQuizSubmission={this.handleQuizSubmission} />
         })
     }
 
+    // incrementAnswerCounter() {
+    //     this.setState(prevState => ({
+    //         answerCounter: prevState.answerCounter + 1
+    //     }))
+    // }
+
     handleQuizSubmission(e) {
+        console.log(e);
+
         e.preventDefault();
-
-    }
-
-    plusCounter(answer) {
-        let { plusCounter } = this.state;
-        let counter;
-        if (answer === true) {
-            counter = ++plusCounter;
-        }
-        counter = --plusCounter
-
         this.setState({
-            plusCounter: counter
-        });
+            finish: true
+        })
+
     }
-
-
     render() {
         return (
             <div>
@@ -69,7 +64,7 @@ class Quiz extends Component {
                 <ol>
                     {this.renderQuestions()}
                 </ol>
-                <input type="button" value="Submit answers" onSubmit={this.handleQuizSubmission} required />
+                <input type="button" value="Submit answers" onClick={this.handleQuizSubmission} required />
             </div>
         );
     }
