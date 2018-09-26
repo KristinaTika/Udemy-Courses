@@ -71,7 +71,6 @@ export const fetchAllCountries = () => {
     return dispatch => {
         return axios.get(allCountriesEndpoint)
         .then(res => dispatch(handleAllCountries(res.data)))
-        .catch(err => console.log("Something went wrong!", err));
     }
 }
 
@@ -79,7 +78,6 @@ export const fetchSingleCountry = (name) => {
     return dispatch => {
         return axios.get(`${countryNameEndpoint}${name}`)
         .then(res => dispatch(handleSingleCountry(res.data)))
-        .catch(err => console.log("Something went wrong!", err));
     }
 }
 
@@ -94,7 +92,6 @@ export const fetchRegion = (region) => {
     return dispatch => {
         return axios.get(`${regionEndpoint}${region}`)
         .then(res => dispatch(handleRegion(res.data)))
-        .catch(err => console.log("Something went wrong!", err));
     }
 }
 
@@ -111,12 +108,10 @@ export const fetchSearchedCountry = (name) => {
     return dispatch => {
         return axios.get(`${countryNameEndpoint}${name}`)
         .then(res => dispatch(handleSearchedCountry(res.data)))
-        .catch(err => console.log("Something went wrong!", err));
     }
 }
 
 const handleCapital = (countries) => {
-    // const myCountries = mapAllCountries(countries);
 
     return {
         type: FETCH_CAPITAL,
@@ -128,6 +123,5 @@ export const fetchCapital = (capital) => {
     return dispatch => {
         return axios.get(`${capitalEndpoint}${capital}`)
         .then(res => dispatch(handleCapital(res.data)))
-        .catch(err => console.log("Something went wrong!", err));
     }
 }

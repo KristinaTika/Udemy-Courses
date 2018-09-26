@@ -16,6 +16,7 @@ class Search extends Component {
             regionOptions: false,
             inputValue: "",
             errorMessage: "",
+            searchType: false
         }
 
         this.handleSearch = this.handleSearch.bind(this);
@@ -27,6 +28,12 @@ class Search extends Component {
     }
 
     handleSearch(e) {
+
+        if(e.target.value === "") {
+            this.setState({
+                searchType: false
+            })
+        }
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -63,6 +70,12 @@ class Search extends Component {
         e.preventDefault();
         const { region, country, capital, inputValue } = this.state;
 
+        if(!region && !country && !capital) {
+            this.setState({
+                searchType: true
+            })
+        }
+
         if (region === true) {
             this.props.fetchRegion(inputValue)
                 .then(res => {
@@ -71,6 +84,7 @@ class Search extends Component {
                         inputValue: "",
                         searchedCountry: "",
                         searchedCapital: "",
+                        errorMessage: false
                     });
                 })
                 .catch((error) => {
@@ -88,6 +102,7 @@ class Search extends Component {
                         inputValue: "",
                         searchedRegion: "",
                         searchedCapital: "",
+                        errorMessage: false
                     });
                 })
                 .catch((error) => {
@@ -105,11 +120,12 @@ class Search extends Component {
                         inputValue: "",
                         searchedCountry: "",
                         searchedRegion: "",
+                        errorMessage: false
                     });
                 })
                 .catch((error) => {
                     this.setState({
-                        errorMessage: error
+                        errorMessage: error,
                     });
                 });
         }
@@ -147,7 +163,7 @@ class Search extends Component {
 
     render() {
 
-        const { regionOptions, searchedRegion, searchedCountry, searchedCapital } = this.state;
+        const { regionOptions, searchedRegion, searchedCountry, searchedCapital, searchType, errorMessage } = this.state;
         return (
             <div id="search-container">
                 <h2>Please select type of search</h2>
@@ -158,14 +174,15 @@ class Search extends Component {
                 <br />
                     <input type="text" name="inputValue" placeholder="search" onChange={this.handleSearch} value={this.state.inputValue} className="search-input" />
                     <p>{regionOptions ? "Search by region: Africa, Americas, Asia, Europe, Oceania" : ""}</p>
+                    <p>{searchType ? "*Please select the type of search" : "" }</p>
                 </form>
                 <ul id="all-countries-list">
                     {!searchedCapital ? "" : this.renderCapital(searchedCapital)}
                     {!searchedRegion ? "" : this.renderRegion(searchedRegion)}
                     {!searchedCountry ? "" : this.renderCountry(searchedCountry)}
                 </ul>
-                <div>
-                    {this.state.errorMessage !== "" ? "No results" : ""}
+                <div className="error-msg">
+                    {errorMessage ? <img src="http://unbxd.com/blog/wp-content/uploads/2014/02/No-results-found.jpg" alt="no searched results"  /> : "" }
                 </div>
             </div>
         );

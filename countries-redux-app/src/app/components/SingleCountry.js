@@ -11,7 +11,7 @@ class SingleCountry extends Component {
     }
 
     render() {
-        let display = <div> Loading countries </div>;
+        let display = <div> Loading country </div>;
         const { singleCountry } = this.props; 
         if(!singleCountry) {
             return display;
@@ -20,7 +20,7 @@ class SingleCountry extends Component {
 
         return(
             <div>
-                <ul id="all-countries-list">
+                <ul>
                     {display}
                 </ul>
             </div>

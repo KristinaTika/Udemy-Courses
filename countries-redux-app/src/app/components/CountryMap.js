@@ -7,7 +7,7 @@ const CountryMap = (props) => {
     const { map, name } = props;
 
     return (
-        <div style={{ height: '500px', width: '500px' }}>
+        <div id="map">
             <GoogleMapReact
                 bootstrapURLKeys={{ key: "AIzaSyB3BZN3ak7KFO9VwsU2HwwbBKAvmWQwkkQ" }}
                 defaultCenter={map}
