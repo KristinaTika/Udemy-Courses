@@ -16,7 +16,6 @@ header a {
 }
 
 header a:hover {
-    border-bottom: 1px solid white;
     color: yellow;
 }
 

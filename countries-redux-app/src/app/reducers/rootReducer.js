@@ -1,4 +1,4 @@
-import { FETCH_ALL_COUNTRIES, FETCH_SINGLE_COUNTRY, FETCH_REGION, FETCH_SEARCHED_COUNTRY, FETCH_CAPITAL } from '../action-creators/actions';
+import { FETCH_ALL_COUNTRIES, FETCH_SINGLE_COUNTRY, FETCH_REGION, FETCH_SEARCHED_COUNTRY, FETCH_CAPITAL, FETCH_QUIZ } from '../action-creators/actions';
 
 const initialState = {
     countries: [],
@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const RootReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_ALL_COUNTRIES:
             return { ...state, countries: action.countries };
         case FETCH_SINGLE_COUNTRY:
@@ -17,6 +17,8 @@ export const RootReducer = (state = initialState, action) => {
             return { ...state, searchedCountry: action.searchedCountry };
         case FETCH_CAPITAL:
             return { ...state, searchedCapital: action.capital };
+        case FETCH_QUIZ:
+            return { ...state, questions: action.questions };
         default:
             return state;
     }

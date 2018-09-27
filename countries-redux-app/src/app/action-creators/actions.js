@@ -1,28 +1,30 @@
 import axios from 'axios';
-import { allCountriesEndpoint, regionEndpoint, countryNameEndpoint, capitalEndpoint } from '../../shared/constants';
+import { allCountriesEndpoint, regionEndpoint, countryNameEndpoint, capitalEndpoint, easyQuizEndpoint, mediumQuizEndpoint, hardQuizEndpoint } from '../../shared/constants';
 import { Country } from '../../entities/Country';
+import { Question } from '../../entities/Question';
 
 export const FETCH_CAPITAL = "FETCH_CAPITAL";
 export const FETCH_SEARCHED_COUNTRY = "FETCH_SEARCHED_COUNTRY";
 export const FETCH_REGION = "FETCH_REGION";
 export const FETCH_ALL_COUNTRIES = "FETCH_ALL_COUNTRIES";
 export const FETCH_SINGLE_COUNTRY = "FETCH_SINGLE_COUNTRY";
+export const FETCH_QUIZ = "FETCH_QUIZ";
 
 const mapCountries = (countries) => {
     return countries.map(country => {
         const name = country.name;
         const domain = country.topLevelDomain;
         const nameCode = country.alpha3Code;
-        const callingCode = country.callingCodes;          
+        const callingCode = country.callingCodes;
         const capital = country.capital;
         const region = country.region;
         const subregion = country.subregion;
         const population = country.population;
         const map = {
-            lat:country.latlng[0],
-            lng:country.latlng[1]
+            lat: country.latlng[0],
+            lng: country.latlng[1]
         }
-        const timezone = country.timezones;                    
+        const timezone = country.timezones;
         const borders = country.borders;
         const nativeName = country.nativeName;
         const currencies = country.currencies;
@@ -44,7 +46,7 @@ const mapAllCountries = (countries) => {
             flag
         };
 
-        return myCountry; 
+        return myCountry;
     });
 }
 
@@ -70,14 +72,14 @@ const handleSingleCountry = (countries) => {
 export const fetchAllCountries = () => {
     return dispatch => {
         return axios.get(allCountriesEndpoint)
-        .then(res => dispatch(handleAllCountries(res.data)))
+            .then(res => dispatch(handleAllCountries(res.data)))
     }
 }
 
 export const fetchSingleCountry = (name) => {
     return dispatch => {
         return axios.get(`${countryNameEndpoint}${name}`)
-        .then(res => dispatch(handleSingleCountry(res.data)))
+            .then(res => dispatch(handleSingleCountry(res.data)))
     }
 }
 
@@ -91,7 +93,7 @@ const handleRegion = (results) => {
 export const fetchRegion = (region) => {
     return dispatch => {
         return axios.get(`${regionEndpoint}${region}`)
-        .then(res => dispatch(handleRegion(res.data)))
+            .then(res => dispatch(handleRegion(res.data)))
     }
 }
 
@@ -107,7 +109,7 @@ const handleSearchedCountry = (countries) => {
 export const fetchSearchedCountry = (name) => {
     return dispatch => {
         return axios.get(`${countryNameEndpoint}${name}`)
-        .then(res => dispatch(handleSearchedCountry(res.data)))
+            .then(res => dispatch(handleSearchedCountry(res.data)))
     }
 }
 
@@ -122,6 +124,41 @@ const handleCapital = (countries) => {
 export const fetchCapital = (capital) => {
     return dispatch => {
         return axios.get(`${capitalEndpoint}${capital}`)
-        .then(res => dispatch(handleCapital(res.data)))
+            .then(res => dispatch(handleCapital(res.data)))
+    }
+}
+
+const handleQuiz = (questions) => {
+
+    let myQuestions = questions.results.map((q, i) => {
+        return new Question(i, q.question, q.correct_answer, q.incorrect_answers);
+    })
+
+    return {
+        type: FETCH_QUIZ,
+        questions: myQuestions
+    }
+}
+
+export const fetchQuiz = (option) => {
+
+    switch (option) {
+        case "easy":
+            return dispatch => {
+                return axios.get(easyQuizEndpoint)
+                    .then(res => dispatch(handleQuiz(res.data)))
+            };
+        case "medium":
+            return dispatch => {
+                return axios.get(mediumQuizEndpoint)
+                    .then(res => dispatch(handleQuiz(res.data)))
+            }
+        case "hard":
+            return dispatch => {
+                return axios.get(hardQuizEndpoint)
+                    .then(res => dispatch(handleQuiz(res.data)))
+            }
+        default:
+            return;
     }
 }

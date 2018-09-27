@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCountry } from '../action-creators/actions';
 import SingleCountryItem from './SingleCountryItem';
+import Loader from '../partials/Loader';
+
 
 class SingleCountry extends Component {
 
@@ -11,14 +13,14 @@ class SingleCountry extends Component {
     }
 
     render() {
-        let display = <div> Loading country </div>;
-        const { singleCountry } = this.props; 
-        if(!singleCountry) {
+        let display = <Loader />;
+        const { singleCountry } = this.props;
+        if (!singleCountry) {
             return display;
         }
-        display = singleCountry.map(c => <SingleCountryItem key={c.name} country={c} /> )
+        display = singleCountry.map(c => <SingleCountryItem key={c.name} country={c} />)
 
-        return(
+        return (
             <div>
                 <ul>
                     {display}
