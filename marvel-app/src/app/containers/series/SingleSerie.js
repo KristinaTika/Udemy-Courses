@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { seriesService } from '../../../services/seriesService';
 import './SingleSerie.css';
+import Loader from '../../partials/Loader';
 
 class SingleSerie extends Component {
     constructor(props) {
@@ -28,10 +29,10 @@ class SingleSerie extends Component {
         const serie = this.state.serie[0];
         return (
             <div >
-                { !serie ? <div> loading </div> : <h3> {serie.title} </h3> }   
+                { !serie ? <Loader /> : <h3> {serie.title} </h3> }   
                 {!serie
                     ?
-                        <div> loading </div>
+                        ""
                     : 
                         <div id="single-serie-container">
                             <div>

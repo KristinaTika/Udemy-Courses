@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { storiesService } from '../../services/storiesService';
 import './SingleStory.css';
+import Loader from '../partials/Loader';
 
 class SingleStory extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class SingleStory extends Component {
             <div >  
                 {!story
                     ?
-                        <div> loading </div>
+                        <Loader />
                     : 
                         <div id="single-story-container">
                             <div>

@@ -1,0 +1,26 @@
+#single-movie-container {
+    /* display: flex; */
+    text-align: center;
+    margin: 30px;
+    line-height: 25px;
+    /* background-image: url("https://images.wallpaperscraft.com/image/spider_man_amazing_fantasy_marvel_comics_98192_1920x1080.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: white; */
+}
+
+#single-movie-container h1, #length {
+    margin: 10px 0;
+}
+
+#sub-container {
+    text-align: left;
+}
+
+.movie-tag {
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-left: 10px;
+}

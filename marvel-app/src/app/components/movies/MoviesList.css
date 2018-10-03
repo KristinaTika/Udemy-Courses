@@ -1,0 +1,24 @@
+#movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    overflow: auto;
+    resize: horizontal;
+    grid-row-gap: 20px;
+    grid-column-gap: 10px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+#movies-list li {
+    border: 0 solid #F44336;
+    border-radius: 20px;
+}
+
+#movies-list li:hover {
+    background-color: #F44336;
+    background-color: #FFEB3B;
+    color: #FFFFFF;
+}
+

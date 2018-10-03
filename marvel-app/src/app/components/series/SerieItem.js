@@ -2,7 +2,7 @@ import React from 'react';
 import './SerieItem.css';
 import { Link } from 'react-router-dom';
 
-export const CharacterItem = (props) => {
+export const SerieItem = (props) => {
 
     const {id, title, image} = props.serie;
     
@@ -18,4 +18,4 @@ export const CharacterItem = (props) => {
     );
 }
 
-export default CharacterItem;
+export default SerieItem;

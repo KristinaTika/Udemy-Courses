@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Serie } from '../../../entities/Serie';
 import { Story } from '../../../entities/Story';
 import { Comic } from '../../../entities/Comic';
+import Loader from '../../partials/Loader';
 
 class SingleCharacter extends Component {
     constructor(props) {
@@ -55,10 +56,10 @@ class SingleCharacter extends Component {
         const { series, stories, comics } = this.state;
         return (
             <div >
-                { !character ? <div> loading </div> : <h3> {character.name} </h3> }   
+                { !character ? <Loader /> : <h3> {character.name} </h3> }   
             { !character
                 ?
-                    <div> loading </div>
+                    ""
                 :
                     <div id="single-character-container">
                         <div>
@@ -71,16 +72,16 @@ class SingleCharacter extends Component {
                             <ul>
                                 {
                                     !series
-                                    ? <div> loading series </div>
-                                    : series.length === 0 ? <div> loading series </div> : this.renderTitles(series)
+                                    ? <Loader />
+                                    : series.length === 0 ? <Loader /> : this.renderTitles(series)
                                 }
                             </ul>
                                 <h4> Stories: </h4>
                             <ul>
                                 {
                                     !stories
-                                    ? <div> loading stories </div>
-                                    : stories.length === 0 ? <div> loading stories </div>
+                                    ? <Loader />
+                                    : stories.length === 0 ? <Loader />
                                     : this.renderTitles(stories)
                                 }
                             </ul>
@@ -88,8 +89,8 @@ class SingleCharacter extends Component {
                             <ul>
                                 {
                                     !comics
-                                    ? <div> loading comics </div>
-                                    : comics.length === 0 ? <div> loading comics </div>
+                                    ? <Loader />
+                                    : comics.length === 0 ? <Loader />
                                     : this.renderTitles(comics)
                                 }
                             </ul>

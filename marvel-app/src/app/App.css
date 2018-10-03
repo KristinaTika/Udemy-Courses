@@ -10,6 +10,6 @@ a {
   font-size: 18px;
 }
 
-/* a:hover {
-  color: #FFFFFF;
-} */
+#loader-img {
+  border-radius: 20px;
+}

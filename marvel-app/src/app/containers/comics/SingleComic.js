@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { comicsService } from '../../../services/comicsService';
 import './SingleComic.css';
+import Loader from '../../partials/Loader';
 
 class SingleComic extends Component {
     constructor(props) {
@@ -21,6 +22,9 @@ class SingleComic extends Component {
     }
 
     renderInfo(titles) {
+        if(titles.length === 0) {
+            return <p> No info available </p>
+        }
         return titles.map((t, i) => (<li key={i}>{t} </li>)); 
     }
 
@@ -30,10 +34,10 @@ class SingleComic extends Component {
         console.log(comic);
         return (
             <div >
-                { !comic ? <div> loading </div> : <h3> {comic.title} </h3> }   
+                { !comic ? <Loader /> : <h3> {comic.title} </h3> }   
                 {!comic
                     ?
-                        <div> loading </div>
+                        ""
                     :
                     <div id="div-div">
                         <div id="single-comic-container">

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 export const ComicItem = (props) => {
 
-    console.log(props.comic)
     const {id, title, image} = props.comic;
 
     return (
